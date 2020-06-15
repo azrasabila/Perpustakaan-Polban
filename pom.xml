@@ -168,13 +168,20 @@
 		<dependency>
       		<groupId>junit</groupId>
       		<artifactId>junit</artifactId>
-    	</dependency>
+                </dependency>
     	
     	<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-test</artifactId>
    		</dependency>
+                
+                 <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+                <dependency>
+                    <groupId>org.seleniumhq.selenium</groupId>
+                    <artifactId>selenium-java</artifactId>
+                    <version>3.13.0</version>
+                </dependency>
    	</dependencies>
 
 	<build>
