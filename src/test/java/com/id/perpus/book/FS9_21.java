@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class 921 {
+public class FS9_21 {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
