@@ -58,33 +58,33 @@ import org.openqa.selenium.Keys as Keys
 public class FR03_AZ {
     public void test(){
 
-        WebUI.openBrowser('')
+        WebUI.openBrowser('');
 
-        WebUI.navigateToUrl('http://localhost:8081/PerpustakaanWebApp/login')
+        WebUI.navigateToUrl('http://localhost:8081/PerpustakaanWebApp/login');
 
-        WebUI.setText(findTestObject('Object Repository/Page_Sistem Perpustakaan POLBAN/input_User Name_username'), 'januar@email.com')
+        WebUI.setText(findTestObject('Object Repository/Page_Sistem Perpustakaan POLBAN/input_User Name_username'), 'januar@email.com');
 
-        WebUI.setEncryptedText(findTestObject('Object Repository/Page_Sistem Perpustakaan POLBAN/input_Password_password'), 'aeHFOx8jV/A=')
+        WebUI.setEncryptedText(findTestObject('Object Repository/Page_Sistem Perpustakaan POLBAN/input_Password_password'), 'aeHFOx8jV/A=');
 
-        WebUI.click(findTestObject('Object Repository/Page_Sistem Perpustakaan POLBAN/button_LOGIN'))
+        WebUI.click(findTestObject('Object Repository/Page_Sistem Perpustakaan POLBAN/button_LOGIN'));
 
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/a_User Management'))
+        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/a_User Management'));
 
-        WebUI.setText(findTestObject('Object Repository/Page_Perpustakaan/input_Name_name'), 'azra')
+        WebUI.setText(findTestObject('Object Repository/Page_Perpustakaan/input_Name_name'), 'azra');
 
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/button_Search'))
+        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/button_Search'));
 
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/div_User Data ManagementNameNIMNIPStatus-- _cede08'))
+        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/div_User Data ManagementNameNIMNIPStatus-- _cede08'));
 
-        WebUI.setText(findTestObject('Object Repository/Page_Perpustakaan/input_Name_name'), 'januar')
+        WebUI.setText(findTestObject('Object Repository/Page_Perpustakaan/input_Name_name'), 'januar');
 
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/button_Search'))
+        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/button_Search'));
 
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/span_USER PROFILE'))
+        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/span_USER PROFILE'));
 
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/a_LOG OUT'))
+        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/a_LOG OUT'));
 
-        WebUI.closeBrowser()
+        WebUI.closeBrowser();
 
 
     }
