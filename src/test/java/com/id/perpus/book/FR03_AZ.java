@@ -1,93 +1,77 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package com.example.tests;
 
-package com.id.perpus.book;
-
-
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import java.util.ArrayList;
-import java.util.List;
+public class UntitledTestCase {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
 
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.context.SpringBootTest;
-//import org.springframework.test.context.ContextConfiguration;
-//import org.springframework.test.context.TestPropertySource;
-//import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-//import org.springframework.test.context.junit4.SpringRunner;
-//import org.springframework.test.context.web.WebAppConfiguration;
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "https://www.google.com/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
 
-import com.id.perpus.PerpustakaanWebAppApplication;
-import com.id.perpus.api.controller.auth.AuthController;
-import com.id.perpus.common.ComboModel;
-import com.id.perpus.common.Common;
+  @Test
+  public void testUntitledTestCase() throws Exception {
+    driver.get("http://localhost:8081/PerpustakaanWebApp/login");
+    driver.findElement(By.id("username")).clear();
+    driver.findElement(By.id("username")).sendKeys("januar@email.com");
+    driver.findElement(By.id("password")).click();
+    driver.findElement(By.id("password")).clear();
+    driver.findElement(By.id("password")).sendKeys("123456");
+    driver.findElement(By.id("btnLogin")).click();
+  }
 
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint;
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase;
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData;
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject;
-import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject;
-import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint;
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW;
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile;
-import com.kms.katalon.core.model.FailureHandling as FailureHandling;
-import com.kms.katalon.core.testcase.TestCase as TestCase;
-import com.kms.katalon.core.testdata.TestData as TestData;
-import com.kms.katalon.core.testobject.TestObject as TestObject;
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS;
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI;
-import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows;
-import internal.GlobalVariable as GlobalVariable;
-import org.openqa.selenium.Keys as Keys;
-
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
-//@TestPropertySource(locations="classpath:application.properties")
-//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-/**
- *
- * @author azra
- */
-public class FR03_AZ {
-    
-    @test
-    public void test(){
-
-        WebUI.openBrowser('');
-
-        WebUI.navigateToUrl('http://localhost:8081/PerpustakaanWebApp/login');
-
-        WebUI.setText(findTestObject('Object Repository/Page_Sistem Perpustakaan POLBAN/input_User Name_username'), 'januar@email.com');
-
-        WebUI.setEncryptedText(findTestObject('Object Repository/Page_Sistem Perpustakaan POLBAN/input_Password_password'), 'aeHFOx8jV/A=');
-
-        WebUI.click(findTestObject('Object Repository/Page_Sistem Perpustakaan POLBAN/button_LOGIN'));
-
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/a_User Management'));
-
-        WebUI.setText(findTestObject('Object Repository/Page_Perpustakaan/input_Name_name'), 'azra');
-
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/button_Search'));
-
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/div_User Data ManagementNameNIMNIPStatus-- _cede08'));
-
-        WebUI.setText(findTestObject('Object Repository/Page_Perpustakaan/input_Name_name'), 'januar');
-
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/button_Search'));
-
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/span_USER PROFILE'));
-
-        WebUI.click(findTestObject('Object Repository/Page_Perpustakaan/a_LOG OUT'));
-
-        WebUI.closeBrowser();
-
-
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
     }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
 }
