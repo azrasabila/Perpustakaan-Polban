@@ -16,13 +16,13 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.test.context.ContextConfiguration;
+//import org.springframework.test.context.TestPropertySource;
+//import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+//import org.springframework.test.context.junit4.SpringRunner;
+//import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.id.perpus.PerpustakaanWebAppApplication;
 import com.id.perpus.api.controller.auth.AuthController;
@@ -47,15 +47,17 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows;
 import internal.GlobalVariable as GlobalVariable;
 import org.openqa.selenium.Keys as Keys;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@TestPropertySource(locations="classpath:application.properties")
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
+//@TestPropertySource(locations="classpath:application.properties")
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 /**
  *
  * @author azra
  */
 public class FR03_AZ {
+    
+    @test
     public void test(){
 
         WebUI.openBrowser('');
